@@ -9,5 +9,3 @@ camera.start_preview()
 
 sleep(2)
 camera.capture(dir_path+"/image.jpg")
-
-os.remove(dir_path+"image.jpg")
