@@ -21,9 +21,9 @@ while True:
         print("Higher")
         print(humiditycurrent)
 
-    elif timer > 10
+    elif timer > 10:
         timer = 0
         humiditystart = sense.get_humidity()
-    else
+    else:
         timer = timer + 1
     time.sleep(1)
