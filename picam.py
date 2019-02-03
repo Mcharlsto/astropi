@@ -1,6 +1,5 @@
 from time import sleep
-from picamera import PiCamera
-import os
+from picamera import PiCamera import os
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 camera = PiCamera()

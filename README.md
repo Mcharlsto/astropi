@@ -1,2 +1,2 @@
 # astropi-hackaholics
-Astro Pi Submission for Team Hackaholics. Written in Python 3 for usage on a Raspberry Pi with camera module and sense hat.
+## Astro Pi Submission for Team Hackaholics. Written in Python 3 for usage on a Raspberry Pi with camera module and sense hat.
