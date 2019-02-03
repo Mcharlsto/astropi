@@ -12,6 +12,7 @@ def checkHumidity():
     while True:
         global timespassed
         global timer
+        global numberofPassings
         global humiditystart
         humiditystart = sense.get_humidity()
         while True:
@@ -20,7 +21,7 @@ def checkHumidity():
                 humiditycurrent = sense.get_humidity()
                 print("Higher")
                 print(humiditycurrent)
-                timespassed = timespassed + 1
+                numberofPassings =  numberofPassings + 1
                 time.sleep(10)
             elif timer > 10:
                 timer = 0
