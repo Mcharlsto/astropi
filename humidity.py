@@ -6,6 +6,7 @@ humiditystart = sense.get_humidity()
 while True:
     humiditycurrent = sense.get_humidity()
     if humiditystart < humiditycurrent:
+        humiditystart = sense.get_humidity()
         print("Higher")
         print(humiditycurrent)
     time.sleep(1)
