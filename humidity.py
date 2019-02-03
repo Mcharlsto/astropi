@@ -4,6 +4,7 @@ sense = SenseHat()
 r = 255
 g = 255
 b = 255
+timespassed = 0
 sense.clear((r, g, b))
 timer = 0
 humiditystart = sense.get_humidity()
@@ -13,7 +14,8 @@ while True:
         humiditystart = sense.get_humidity()
         print("Higher")
         print(humiditycurrent)
-
+        timespassed = timespassed + 1
+        time.sleep(10)
     elif timer > 10:
         timer = 0
         humiditystart = sense.get_humidity()
