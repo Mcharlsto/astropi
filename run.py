@@ -2,7 +2,6 @@ from sense_hat import SenseHat
 sense = SenseHat()
 import time
 import threading
-timer = 0
 def displayData():
     while True:
         global numberOfPassings
@@ -14,6 +13,7 @@ def checkHumidity():
         global timer
         global numberofPassings
         global humiditystart
+        timer = 0
         humiditystart = sense.get_humidity()
         while True:
             humiditycurrent = sense.get_humidity()
