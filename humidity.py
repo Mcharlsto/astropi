@@ -1,17 +1,10 @@
 from sense_hat import SenseHat
 import time
-from sense_hat import SenseHat
-
 sense = SenseHat()
-
 r = 255
 g = 255
 b = 255
-
 sense.clear((r, g, b))
-
-sense = SenseHat()
-sense.clear()
 timer = 0
 humiditystart = sense.get_humidity()
 while True:
