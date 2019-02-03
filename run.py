@@ -2,7 +2,7 @@ from sense_hat import SenseHat
 sense = SenseHat()
 import time
 import threading
-
+timer = 0
 def displayData():
     while True:
         global numberOfPassings
