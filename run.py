@@ -3,10 +3,10 @@ sense = SenseHat()
 import time
 import threading
 numberofPassings = 0
-def displayData():
-    while True:
-        global numberOfPassings
-        sense.show_message("Number of movements: " + numberOfPassings)
+#def displayData():
+#    while True:
+ #       global numberOfPassings
+#        sense.show_message("Number of movements: " + numberOfPassings)
 
 def checkHumidity():
     while True:
@@ -30,6 +30,7 @@ def checkHumidity():
             else:
                 timer = timer + 1
             time.sleep(1)
+            sense.show_message("Number of movements: " + numberOfPassings)
 
 inputThread = threading.Thread(target=checkHumidity())
 outputThread = threading.Thread(target=displayData())
