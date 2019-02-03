@@ -3,7 +3,7 @@ sense = SenseHat()
 sense.clear()
 
 humiditystart = sense.get_humidity()
-While True:
+while True:
     humiditycurrent = sense.get_humidity()
-    If humiditystart < humiditycurrent:
+    if humiditystart < humiditycurrent:
         print("Higher")
