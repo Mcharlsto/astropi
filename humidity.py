@@ -8,4 +8,4 @@ while True:
     if humiditystart < humiditycurrent:
         print("Higher")
         print(humiditycurrent)
-    time.sleep(1)
+    time.sleep(1000)
