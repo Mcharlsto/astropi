@@ -29,30 +29,38 @@ while (nowTime < startTime + datetime.timedelta(minutes=17)):
     # Declare variables
     timer = 0 # Variable to store timer
     baseHumidity = sense.get_humidity() # Humidity value to compare against
+    baseTemperature = sense.get_temperature() # Temperature value to compare against
 
-    # Get current humidity
+    # Get current humidity and temperature
     currentHumidity = sense.get_humidity()
+    currentTemperature  = sense.get_temperature()
 
-    # Check if humidity has gone up more than one
-    if baseHumidity + 1 < currentHumidity:
-        baseHumidity = sense.get_humidity()
-        print("Higher humidity detected.")
-        print(currentHumidity)
-        numberOfPassings =  numberOfPassings + 1 # Add another passing
-        time.sleep(10) # Sleep for ten seconds before getting next reading
-    elif timer > 10:
-        timer = 0 # Reset timer
-        baseHumidity = sense.get_humidity() # Get new base reading if not exceeded for ten seconds
-    else:
-        timer = timer + 1 # Add one on to timer for above elif
 
-    # Sleep for a second !!Why is this necessary!!
-    time.sleep(1)
+    # Check if humidity/temp has gone up more than one
+    while True:
+        if baseHumidity + 2 < currentHumidity or baseTemperature + 2 < currentTemperature:
+            baseHumidity = sense.get_humidity()
+            baseTemperature = sense.get_temperature()
+            print("Higher values detected.")
+            print(currentHumidity)
+            print(currentTemperature)
+            numberOfPassings =  numberOfPassings + 1 # Add another passing
+            time.sleep(2) # Sleep for two second before getting next reading
+        elif timer > 2:
+            timer = 0 # Reset timer
+            baseHumidity = sense.get_humidity() # Get new base reading if not exceeded for ten seconds
+            baseTemperature = sense.get_temperature() # Continued
+        else:
+            timer = timer + 1 # Add one on to timer for above elif
 
-    # Output and log the value 
-    sense.show_message("Number of Passing: ") # Output onto matrix for Columbus viewing
-    sense.show_message(str(numberOfPassings)) # Continued output
-    logger.info("%s,%s", numberOfPassings, "%s,%s") # Add to logger output csv
+        # Sleep for a second !!Why is this necessary!!
+        time.sleep(1)
 
-    # Get new now time for 170 min timer
-    nowTime = datetime.datetime.now()
+        # Output and log the value
+        sense.show_message(str(numberOfPassings)) # Continued output
+        logger.info("%s,%s", numberOfPassings, "%s,%s") # Add to logger output csv
+
+        # Get new now time for 170 min timer
+        nowTime = datetime.datetime.now()
+
+
