@@ -1,0 +1,4 @@
+blank_issues_enabled: false
+contact_links:
+  - name: No longer supported
+    about: This project is unmaintained and won't be fixed if issues arise
